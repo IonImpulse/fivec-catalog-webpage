@@ -17,7 +17,7 @@ function expensiveCourseSearch(input, all_courses_global, colors, hmc_mode) {
 
 	for (let i = 0; i < results.length; i++) {
 		let course = results[i].obj ?? results[i];
-		let course_div = createResultDiv(course, colors[i % colors.length], course.descIndex);
+		let course_div = createResultDiv(course, colors[i % colors.length], i);
 
 		output.push(course_div);
 	}
@@ -28,10 +28,10 @@ function expensiveCourseSearch(input, all_courses_global, colors, hmc_mode) {
 function createResultDiv(course, color, descIndex) {
 	let course_div = document.createElement("div");
 	course_div.classList.add("catalog-search-result");
-	course_div.id = `catalog-search-result-${course.identifier}`;
+	course_div.id = `catalog-search-result-${descIndex}`;
 	course_div.style.backgroundColor = `var(--color-${color})`;
 	course_div.onclick = function () {
-		toggleSelected(`${course.identifier}`);
+		toggleSelected(`${descIndex}`);
 	};
 
 

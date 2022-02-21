@@ -69,9 +69,8 @@ async function submitSearch() {
     output.replaceWith(result_node);
 }
 
-function toggleSelected(id) {
-    let el = document.getElementById(`catalog-search-result-${id}`);
-    let course = database.catalog.find(course => course.identifier == id);
+function toggleSelected(index) {
+    let el = document.getElementById(`catalog-search-result-${index}`);
     
     Swal.fire({
         title: "",
