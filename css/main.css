@@ -334,6 +334,10 @@ button.big {
   color: var(--text-main);
 }
 
+.swal-wide {
+    width: 50vw !important;
+}
+
 .swal-course-popup {
     text-align: left;
     padding: 20px;

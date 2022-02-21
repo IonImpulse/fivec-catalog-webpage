@@ -76,7 +76,7 @@ function toggleSelected(index) {
         title: "",
         html: `<div class="swal-course-popup">${el.innerHTML}</div`,
         customClass: {
-			popup: 'swal-course-popup',
+			popup: 'swal-wide swal-course-popup',
 			confirmButton: 'default-button swal confirm',
 			cancelButton: 'default-button swal cancel',
 		},
