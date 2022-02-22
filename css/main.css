@@ -257,6 +257,10 @@ button.big {
   color: var(--text-light);
 }
 
+.desc {
+    margin-top: 20px;
+}
+
 .catalog-search-result .desc {
   overflow: hidden;
   display: -webkit-box;

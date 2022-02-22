@@ -6,12 +6,10 @@ const STATUS = "status"
 function toggle_theme() {
 	if (document.documentElement.getAttribute("data-theme") != "dark") {
 		document.documentElement.setAttribute('data-theme', 'dark');
-		colors = colors_dark
 		localStorage.setItem("theme", "dark");
 	}
 	else {
 		document.documentElement.setAttribute('data-theme', 'light');
-		colors = colors_light
 		localStorage.setItem("theme", "light");
 	}
 }
