@@ -56,7 +56,7 @@ function createResultDiv(course, color, descIndex) {
 	let offered_div = document.createElement("div");
 	offered_div.classList.add("offered");
 	if (course.currently_offered) {
-		offered_div.innerHTML = `<b><a href="https://5scheduler.io?search=${course.identifier}">Currently offered (5scheduler.io)</a></b><br>`;
+		offered_div.innerHTML = `<b><a href="https://5scheduler.io?search=${course.identifier}" target='_blank'>Currently offered (5scheduler.io)</a></b><br>`;
 	}
 
 	if (course.offered != "") {
