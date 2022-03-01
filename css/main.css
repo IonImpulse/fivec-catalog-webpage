@@ -14,7 +14,7 @@
   --text-alt: #fdfdfd;
   --text-course-schedule: #fdfdfd;
   --text-course-schedule-alt: #2b2b2b;
-  --text-light: #222222;
+  --text-light: #e6e6e6;
   --text-main: #252525;
   --link-color: #0d2f44;
 
@@ -224,7 +224,7 @@ button.big {
   }
 
 .catalog-search-result {
-  color: var(--text-main);
+  color: #eeeeee;
   width: 300px;
   height: 380px;
   padding: var(--padding);
@@ -255,6 +255,7 @@ button.big {
 .identifier {
   font-size: 1em;
   color: var(--text-light);
+  font-weight: bolder;
 }
 
 .desc {
