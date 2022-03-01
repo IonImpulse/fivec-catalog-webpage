@@ -44,6 +44,8 @@ async function startup() {
         document.getElementById("search-bar").value = search;
         submitSearch();
     }
+
+    document.getElementById("search-bar").focus();
 }
 
 function removeFader() {
