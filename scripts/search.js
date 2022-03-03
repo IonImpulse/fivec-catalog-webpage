@@ -34,6 +34,11 @@ function createResultDiv(course, color, descIndex) {
 		toggleSelected(`${descIndex}`);
 	};
 
+	let course_code = document.createElement("div");
+	course_code.classList.add("identifier");
+	course_code.innerHTML = course.identifier;
+
+	course_div.appendChild(course_code);
 
 	let course_name = document.createElement("div");
 	course_name.classList.add("title");
@@ -41,15 +46,9 @@ function createResultDiv(course, color, descIndex) {
 
 	course_div.appendChild(course_name);
 
-	let course_code = document.createElement("div");
-	course_code.classList.add("identifier");
-	course_code.innerHTML = course.identifier;
-
-	course_div.appendChild(course_code);
-
 	let credits_desc = document.createElement("div");
 	credits_desc.classList.add("credits");
-	credits_desc.innerHTML = `<b>${(course.credits / 100).toFixed(2)} credits</b>`;
+	credits_desc.innerHTML = `<b>${(course.credits / 100).toFixed(2)} credits</b> at <b>${schoolToAbbreviation(course.source)}</b>`;
 
 	course_div.appendChild(credits_desc);
 
@@ -308,5 +307,20 @@ function schoolToReadable(school) {
 			return "Pitzer College";
 		case "Scripps":
 			return "Scripps College";
+	}
+}
+
+function schoolToAbbreviation(school) {
+	switch (school) {
+		case "HarveyMudd":
+			return "HMC";
+		case "ClaremontMckenna":
+			return "CMC";
+		case "Pomona":
+			return "Pomona";
+		case "Pitzer":
+			return "Pitzer";
+		case "Scripps":
+			return "Scripps";
 	}
 }

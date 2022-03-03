@@ -14,7 +14,7 @@
   --text-alt: #fdfdfd;
   --text-course-schedule: #fdfdfd;
   --text-course-schedule-alt: #2b2b2b;
-  --text-light: #e6e6e6;
+  --text-light: #646464;
   --text-main: #252525;
   --link-color: #0d2f44;
 
@@ -211,7 +211,7 @@ button.big {
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 #logo {
@@ -228,6 +228,7 @@ button.big {
   width: 300px;
   height: 380px;
   padding: var(--padding);
+  padding-top: 50px;  
   border-radius: var(--roundedness);
   cursor: pointer;
   border: var(--button-outline) solid 1px;
@@ -250,12 +251,31 @@ button.big {
 .title {
   font-size: 1.5em;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .identifier {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.catalog-search-result .identifier {
   font-size: 1em;
-  color: var(--text-light);
+  color: var(--text-main);
+  background-color: var(--text-alt) ;
   font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  margin: 0 !important;
 }
 
 .desc {
