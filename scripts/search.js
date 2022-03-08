@@ -100,8 +100,9 @@ function tweakSearch(string) {
 	let return_string = string.toLowerCase();
 
 	// Common replacements
-	// Type can be "full" or "any"
+	// Type can be "full", "number", or "any"
 	// Full only matches full tokens/words separated by spaces
+	// Number matches any phrase next to a number, but keeps the number
 	const replacements = [
 		{ type: "full", search: "cs", replace: "csci" },
 		{ type: "full", search: "e", replace: "engr" },
@@ -114,35 +115,24 @@ function tweakSearch(string) {
 	for (let replacement of replacements) {
 		if (replacement.type == "full") {
 			return_string = return_string.replaceAll(new RegExp(`\\b${replacement.search}\\b`, 'g'), replacement.replace);
+			let regex = new RegExp(`\\b(${replacement.search})([0-9]+)\\b`, 'g');
+
+			// Find matches
+			let matches = [...return_string.matchAll(regex)];
+			
+			// Replace matches with the replacement and number
+			for (let match of matches) {
+				return_string = return_string.replaceAll(match[0], `${replacement.replace}${match[2]}`);
+			}
 		} else if (replacement.type == "any") {
 			return_string = return_string.replaceAll(replacement.search, replacement.replace);
 		}
 	}
 
-	// Add a 0 to the course number
-	let num_corrected_string = "";
-
-	for (part of return_string.split(" ")) {
-		// JS is horrible, to see if a string is a number or not
-		// I have to parse it then take the output and convert
-		// that back to a string.
-		//
-		// Then I can compare it to the string value of "NaN" to see
-		// if it's a number or not.
-		if (`${parseInt(part)}` != "NaN") {
-			if (part.length == 2) {
-				num_corrected_string += ` 0${part}`;
-			} else if (part.length == 1) {
-				num_corrected_string += ` 00${part}`;
-			} else {
-				num_corrected_string += ` ${part}`;
-			}
-		} else {
-			num_corrected_string += ` ${part}`;
-		}
-	}
-
-	return_string = num_corrected_string;
+	// Pad all numbers to 3 digits with 0s
+	return_string = return_string.replaceAll(/([0-9]+)/g, (match) => {
+		return match.padStart(3, "0");
+	});
 
 	return return_string.trim().toLowerCase();
 }
